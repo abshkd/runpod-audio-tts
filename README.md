@@ -1,5 +1,5 @@
 # Qwen3-TTS RunPod Serverless
-
+[![Runpod](https://api.runpod.io/badge/abshkd/runpod-audio-tts)](https://console.runpod.io/hub/abshkd/runpod-audio-tts)
 Text-to-Speech endpoint using [Qwen3-TTS-12Hz-1.7B-CustomVoice](https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice).
 
 📑 [Qwen3-TTS Documentation](https://github.com/QwenLM/Qwen3-TTS)
