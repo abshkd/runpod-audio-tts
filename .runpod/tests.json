@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Basic English",
+    "input": {
+      "text": "Hello, this is a test of the text to speech system.",
+      "speaker": "Ryan",
+      "language": "English"
+    },
+    "expected": {
+      "has_key": ["audio_base64", "sample_rate", "duration_seconds"]
+    }
+  },
+  {
+    "name": "Chinese with instruction",
+    "input": {
+      "text": "你好，欢迎使用语音合成服务。",
+      "speaker": "Vivian",
+      "language": "Chinese",
+      "instruction": "用温柔的语气说"
+    },
+    "expected": {
+      "has_key": ["audio_base64", "sample_rate", "duration_seconds"]
+    }
+  },
+  {
+    "name": "Auto language detection",
+    "input": {
+      "text": "Welcome to the future.",
+      "speaker": "Aiden"
+    },
+    "expected": {
+      "has_key": ["audio_base64", "sample_rate", "duration_seconds"]
+    }
+  },
+  {
+    "name": "Missing text error",
+    "input": {
+      "speaker": "Ryan"
+    },
+    "expected": {
+      "has_key": ["error"]
+    }
+  }
+]

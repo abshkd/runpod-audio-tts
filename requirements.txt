@@ -1,0 +1,7 @@
+# Core deps - versions managed in Dockerfile
+torch
+qwen-tts
+runpod
+soundfile
+huggingface_hub
+flash-attn
