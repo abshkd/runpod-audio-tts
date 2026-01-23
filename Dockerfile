@@ -15,8 +15,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.12 1 \
     && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.12 1
 
-WORKDIR /app
-
 # Install deps
 RUN pip install --no-cache-dir \
     torch \
@@ -38,11 +36,6 @@ snapshot_download('Qwen/Qwen3-TTS-Tokenizer-12Hz'); \
 snapshot_download('Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice')"
 
 # Copy source
-COPY src/ /app/src/
-COPY entrypoint.sh /app/
+COPY handler.py engine.py /
 
-RUN chmod +x /app/entrypoint.sh
-
-EXPOSE 8000
-
-ENTRYPOINT ["/app/entrypoint.sh"]
+CMD ["python", "/handler.py"]
