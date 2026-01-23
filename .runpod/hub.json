@@ -1,0 +1,40 @@
+{
+  "title": "Runpod Qwen3-TTS Audio",
+  "description": "Text-to-Speech using Qwen3-TTS-12Hz-1.7B-CustomVoice with 9 premium voices and 10 language support",
+  "type": "serverless",
+  "category": "audio",
+  "iconUrl": "https://camo.githubusercontent.com/b47c3f68bb22865a9ca957c04e55b71cb68abb0750f5c55bac377b5b3257cfc8/68747470733a2f2f7169616e77656e2d7265732e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f5177656e332d5454532d5265706f2f7177656e335f7474735f6c6f676f2e706e67",
+  "config": {
+    "runsOn": "GPU",
+    "containerDiskInGb": 30,
+    "gpuCount": 1,
+    "gpuIds": "NVIDIA RTX 4090",
+    "allowedCudaVersions": [
+      "12.9", "13.0"
+    ],
+    "presets": [
+      {
+        "name": "Preset 1",
+        "defaults": {
+          "STATIC_1": "value_1",
+          "STRING_1": "default value 1"
+        }
+      }
+    ],
+    "env": [
+      {
+        "key": "STATIC_VAR",
+        "value": "static_value"
+      },
+      {
+        "key": "STRING_VAR",
+        "input": {
+          "name": "String Input",
+          "type": "string",
+          "description": "A string input test",
+          "default": "new default value"
+        }
+      }
+    ]
+  }
+}
