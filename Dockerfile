@@ -1,4 +1,4 @@
-# Base: CUDA 12.9 + Python 3.12
+# Base: CUDA 12.9 + Python 3.12 https://github.com/abshkd/runpod-audio-tts
 FROM nvidia/cuda:12.9.0-devel-ubuntu24.04
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -17,14 +17,17 @@ RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.12 1 \
 
 WORKDIR /app
 
-# Install deps - qwen-tts is the official package
+# Install deps
 RUN pip install --no-cache-dir \
     torch \
     qwen-tts \
     runpod \
     soundfile \
-    huggingface_hub \
-    && pip install --no-cache-dir flash-attn --no-build-isolation
+    huggingface_hub
+
+# Install prebuilt flash-attn (cu12, torch2.9, py3.12)
+RUN pip install --no-cache-dir \
+    https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.3/flash_attn-2.8.3+cu12torch2.9cxx11abiTRUE-cp312-cp312-linux_x86_64.whl
 
 # Download models at build time (to HF cache)
 ARG HF_TOKEN=""
