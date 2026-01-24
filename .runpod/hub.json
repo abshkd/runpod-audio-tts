@@ -8,33 +8,9 @@
     "runsOn": "GPU",
     "containerDiskInGb": 30,
     "gpuCount": 1,
-    "gpuIds": "NVIDIA RTX 4090",
+    "gpuIds": "ADA_24",
     "allowedCudaVersions": [
       "12.9", "13.0"
-    ],
-    "presets": [
-      {
-        "name": "Preset 1",
-        "defaults": {
-          "STATIC_1": "value_1",
-          "STRING_1": "default value 1"
-        }
-      }
-    ],
-    "env": [
-      {
-        "key": "STATIC_VAR",
-        "value": "static_value"
-      },
-      {
-        "key": "STRING_VAR",
-        "input": {
-          "name": "String Input",
-          "type": "string",
-          "description": "A string input test",
-          "default": "new default value"
-        }
-      }
     ]
   }
 }

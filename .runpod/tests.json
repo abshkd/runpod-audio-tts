@@ -13,12 +13,6 @@
   "config": {
     "gpuTypeId": "NVIDIA GeForce RTX 4090",
     "gpuCount": 1,
-    "env": [
-      {
-        "key": "TEST_ENV_VAR",
-        "value": "test_value"
-      }
-    ],
     "allowedCudaVersions": [
       "12.9", "13.0"
     ]
