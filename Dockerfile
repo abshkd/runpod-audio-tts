@@ -22,6 +22,7 @@ RUN pip install --no-cache-dir \
     accelerate==1.12.0 \
     librosa \
     soundfile \
+    sox \
     onnxruntime \
     einops \
     qwen-tts \
