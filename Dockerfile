@@ -23,10 +23,6 @@ RUN pip install --no-cache-dir \
     soundfile \
     huggingface_hub
 
-# Install prebuilt flash-attn (cu12, torch2.9, py3.12)
-RUN pip install --no-cache-dir \
-    https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.3/flash_attn-2.8.3+cu12torch2.9cxx11abiTRUE-cp312-cp312-linux_x86_64.whl
-
 # Download models at build time (to HF cache)
 ARG HF_TOKEN=""
 ENV HF_TOKEN=${HF_TOKEN}

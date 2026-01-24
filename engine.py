@@ -53,7 +53,6 @@ class TTSEngine:
             MODEL_ID,
             device_map="cuda:0",
             dtype=torch.bfloat16,
-            attn_implementation="flash_attention_2",
         )
         print(f"[TTSEngine] Model loaded: {MODEL_ID}")
 
