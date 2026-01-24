@@ -9,18 +9,23 @@ ENV PIP_BREAK_SYSTEM_PACKAGES=1
 # System deps
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python3.12 python3.12-venv python3-pip \
-    git wget curl ffmpeg \
+    git wget curl ffmpeg sox \
     && rm -rf /var/lib/apt/lists/*
 
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.12 1 \
     && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.12 1
 
-# Install deps
 RUN pip install --no-cache-dir \
-    torch \
+    "torch<2.10" \
+    torchaudio \
+    transformers==4.57.3 \
+    accelerate==1.12.0 \
+    librosa \
+    soundfile \
+    onnxruntime \
+    einops \
     qwen-tts \
     runpod \
-    soundfile \
     huggingface_hub
 
 # Download models at build time (to HF cache)
