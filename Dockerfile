@@ -1,5 +1,5 @@
 # Base: CUDA 12.9 + Python 3.12 https://github.com/abshkd/runpod-audio-tts
-FROM nvidia/cuda:12.9.0-devel-ubuntu24.04
+FROM nvidia/cuda:12.9.1-cudnn-runtime-ubuntu24.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PYTHONUNBUFFERED=1
@@ -38,7 +38,7 @@ snapshot_download('Qwen/Qwen3-TTS-Tokenizer-12Hz'); \
 snapshot_download('Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice')"
 
 # Copy source
-COPY handler.py engine.py /
+COPY handler.py engine.py test_input.json /
 COPY entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 
