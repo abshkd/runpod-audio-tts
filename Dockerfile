@@ -33,5 +33,7 @@ snapshot_download('Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice')"
 
 # Copy source
 COPY handler.py engine.py /
+COPY entrypoint.sh /
+RUN chmod +x /entrypoint.sh
 
-CMD ["python", "/handler.py"]
+ENTRYPOINT ["/entrypoint.sh"]
