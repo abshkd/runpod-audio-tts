@@ -34,22 +34,26 @@ def handler(job: dict) -> dict:
     instruction = job_input.get("instruction")
     language = job_input.get("language", DEFAULT_LANGUAGE)
     
+    print("[Handler] Loading engine...")
     try:
         engine = get_engine()
+    except Exception as exc:
+        print(f"[Handler] Engine load failed: {exc}")
+        raise
+    print("[Handler] Engine loaded.")
+
+    print("[Handler] Generating audio...")
+    try:
         result = engine.generate(
             text=text,
             speaker=speaker,
             instruction=instruction,
             language=language,
         )
-        return result
-    except Exception as e:
-        return {"error": str(e)}
-
-
-# Warmup: pre-load model on cold start
-print("[Handler] Warming up engine...")
-get_engine()
-print("[Handler] Engine ready.")
+    except Exception as exc:
+        print(f"[Handler] Generation failed: {exc}")
+        raise
+    print("[Handler] Generation complete.")
+    return result
 
 runpod.serverless.start({"handler": handler})
