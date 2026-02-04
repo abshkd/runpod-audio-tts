@@ -7,7 +7,7 @@
         "speaker": "Ryan",
         "language": "English"
       },
-      "timeout" : 100000
+      "timeout" : 900000
     }
   ],
   "config": {
